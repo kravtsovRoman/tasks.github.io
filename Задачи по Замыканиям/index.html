@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Сумма через замыкание</title>
+	<script src=main.js></script>
 </head>
 <body>
 	<script>
@@ -48,33 +49,33 @@
 
 // 3. sort-by-field
 
-var users = [{
-	name: "Вася",
-	surname: 'Иванов',
-	age: 33
-}, {
-	name: "Петя",
-	surname: 'Чапаев',
-	age: 55
-}, {
-	name: "Маша",
-	surname: 'Медведева',
-	age: 15
-}];
+// var users = [{
+// 	name: "Вася",
+// 	surname: 'Иванов',
+// 	age: 33
+// }, {
+// 	name: "Петя",
+// 	surname: 'Чапаев',
+// 	age: 55
+// }, {
+// 	name: "Маша",
+// 	surname: 'Медведева',
+// 	age: 15
+// }];
 
- function byField(field){
-	  return function (a,b){
-	  	return a[field] > b[field] ? 1 : -1;
-	  }
-}
+//  function byField(field){
+// 	  return function (a,b){
+// 	  	return a[field] > b[field] ? 1 : -1;
+// 	  }
+// }
 
 
 
-users.sort(byField('name'));
+// users.sort(byField('name'));
 
-users.forEach(function(user) {
-  console.log(user.name, user.age);
-});
+// users.forEach(function(user) {
+//   console.log(user.name, user.age);
+// });
 
 	</script>
 </body>
