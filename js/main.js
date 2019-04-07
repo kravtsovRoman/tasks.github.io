@@ -1,14 +1,23 @@
 
-var str = 'george';
+var str = 'viagra and XXX';
+var target = ["viagra", "xxx"];
 
-var ucFirct = function (string) {
+var checkSpam = function (string) {
 
-    return string.charAt(0).toUpperCase() + string.slice(1) || 'String is empty';
+    var pos = 0;
 
+    while (true) {
+        for (let i = 0; i < target.length; i++) {
+            var foundPos = string.toLowerCase().indexOf(target[i], pos);
+            if (~foundPos) {
+                console.log(foundPos, ' - позиция со спамом');
+            }
+        }
+        if (foundPos == -1) break;
+        pos = foundPos + 1;
+    }
 }
 
 console.log(
-
-    ucFirct(str)
-
+    checkSpam(str)
 );
