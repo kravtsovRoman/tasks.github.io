@@ -1,23 +1,16 @@
 
-var str = 'viagra and XXX';
-var target = ["viagra", "xxx"];
+var str = 'Very dfghjkldas ashdg jadgs hjdk asd';
 
-var checkSpam = function (string) {
+var truncate = function (str, maxlength) {
+    var newStr = '';
 
-    var pos = 0;
-
-    while (true) {
-        for (let i = 0; i < target.length; i++) {
-            var foundPos = string.toLowerCase().indexOf(target[i], pos);
-            if (~foundPos) {
-                console.log(foundPos, ' - позиция со спамом');
-            }
-        }
-        if (foundPos == -1) break;
-        pos = foundPos + 1;
+    if (str.length > maxlength) {
+        newStr = str.slice(0, maxlength - 3) + '...';
     }
+    else {
+        newStr = str;
+    }
+    console.log(newStr);
 }
 
-console.log(
-    checkSpam(str)
-);
+truncate(str, 10)
