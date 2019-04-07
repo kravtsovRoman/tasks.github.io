@@ -1,8 +1,10 @@
 
-let a = -12.124;
+let n = function (min, max) {
+    return min + Math.random() * (max - min)
+}
 
 console.log(
 
-    parseInt(Math.random() * 1000000).toLocaleString()
+    +n(50, 100).toFixed(0)
 
 );
