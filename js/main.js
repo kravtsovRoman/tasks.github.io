@@ -1,13 +1,12 @@
 
-var str = 'Very dfghjkldas ashdg jadgs hjdk asd';
+var user = {};
 
-var truncate = function (str, maxlength) {
-    var newStr = '';
+// user.name = "Vasya";
 
-    return str.length > maxlength ?
-        str.slice(0, maxlength - 3) + '...' : str
+var isEmpty = function (obj) {
+    Object.keys(obj).length ? console.log('Not empty') : console.log('Empty');
 }
 
-console.log(
-    truncate(str, 10)
-);
+isEmpty(user);
+
+
