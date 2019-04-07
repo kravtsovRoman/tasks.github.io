@@ -1,9 +1,14 @@
 
-var str = "1234567891011121314151617181920";
+var str = 'george';
+
+var ucFirct = function (string) {
+
+    return string.charAt(0).toUpperCase() + string.slice(1) || 'String is empty';
+
+}
 
 console.log(
 
-
-    str.slice(13, -3)
+    ucFirct(str)
 
 );
