@@ -1,14 +1,11 @@
-arr = [5, 3, 8, 1, 10, 15, 22, 123, 0, 3, 12, 14, 2, 3, 4, 5555, 12, 2];
+var vasya = { name: "Вася", age: 23 };
+var masha = { name: "Маша", age: 18 };
+var vovochka = { name: "Вовочка", age: 6 };
 
-function sortReverse(arr) {
-    arr.sort(compareNumeric).reverse()
+var people = [vasya, masha, vovochka];
 
-    return arr;
-}
 
-function compareNumeric(a, b) {
-    if (a > b) return 1;
-    if (a < b) return -1;
-}
+people.sort((a, b) => a.age - b.age);
 
-console.log(sortReverse(arr))
+
+console.log(people)
