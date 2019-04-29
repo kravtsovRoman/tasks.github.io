@@ -1,23 +1,24 @@
 
-var obj = {
-    className: 'open menu'
-};
 
-function addClass(obj, cls) {
-    var arrClass = obj.className.split(' ');
-    for (var i = 0; i < arrClass.length; i++) {
-        if (arrClass[i] === cls) {
-            break;
+function camelize(string) {
+    var newArr = [];
+    var arrString = string.split('-');
+    for (let i = 0; i < arrString.length; i++) {
+        if (i !== 0) {
+            var firstChar = arrString[i].charAt(0).toUpperCase();
+            var allWord = arrString[i].split('');
+
+            allWord.splice(0, 1, firstChar);
+            newArr.push(allWord.join(''))
         }
         else {
-            arrClass.push(cls);
-            break;
+            newArr.push(arrString[i])
         }
     }
-    obj.className = arrClass.join(' ');
-    return obj;
+    return newArr.join('');
 }
 
-console.log(addClass(obj, 'new'))
-console.log(addClass(obj, 'me'))
-console.log(addClass(obj, 'abc'))
+console.log(camelize('list-style-type'))
+console.log(camelize('background-color'))
+console.log(camelize('inline-flex'))
+console.log(camelize('text-align'))
