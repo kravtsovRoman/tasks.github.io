@@ -1,24 +1,16 @@
+arr = [5, 3, 8, 1, 10, 15, 22, 123, 0, 3, 12, 14, 2, 3, 4, 5555, 12, 2];
 
-
-function camelize(string) {
-    var newArr = [];
-    var arrString = string.split('-');
-    for (let i = 0; i < arrString.length; i++) {
-        if (i !== 0) {
-            var firstChar = arrString[i].charAt(0).toUpperCase();
-            var allWord = arrString[i].split('');
-
-            allWord.splice(0, 1, firstChar);
-            newArr.push(allWord.join(''))
+function filterRangeInPlace(arr, a, b) {
+    // console.log(b)
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < a || arr[i] > b) {
+            arr.splice(i, 1);
+            i--;
+            // console.log(i)
         }
-        else {
-            newArr.push(arrString[i])
-        }
+
     }
-    return newArr.join('');
+    return arr;
 }
 
-console.log(camelize('list-style-type'))
-console.log(camelize('background-color'))
-console.log(camelize('inline-flex'))
-console.log(camelize('text-align'))
+console.log(filterRangeInPlace(arr, 10, 20))
