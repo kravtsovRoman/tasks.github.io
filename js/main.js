@@ -1,7 +1,15 @@
-var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var arr = [1, 2, 3, 4, 5];
 
-const arr2 = arr.reduce((sum, item) => {
-    return sum += item
-});
+function getSums(arr) {
+    var arrSum = [];
 
-console.log(arr2)
+    arr.reduce(function (sum, item) {
+        sum += item;
+        arrSum.push(sum);
+        return sum;
+    }, 0);
+
+    return arrSum;
+}
+
+console.log(getSums(arr));
