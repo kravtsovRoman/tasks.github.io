@@ -1,15 +1,6 @@
-var arr = [1, 2, 3, 4, 5];
 
-function getSums(arr) {
-    var arrSum = [];
-
-    arr.reduce(function (sum, item) {
-        sum += item;
-        arrSum.push(sum);
-        return sum;
-    }, 0);
-
-    return arrSum;
+function f(x) {
+    return arguments.length > 0 ? 1 : 0
 }
 
-console.log(getSums(arr));
+console.log(f(undefined));
