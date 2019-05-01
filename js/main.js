@@ -1,11 +1,7 @@
-var vasya = { name: "Вася", age: 23 };
-var masha = { name: "Маша", age: 18 };
-var vovochka = { name: "Вовочка", age: 6 };
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-var people = [vasya, masha, vovochka];
+const arr2 = arr.reduce((sum, item) => {
+    return sum += item
+});
 
-
-people.sort((a, b) => a.age - b.age);
-
-
-console.log(people)
+console.log(arr2)
