@@ -1,6 +1,11 @@
 
-function f(x) {
-    return arguments.length > 0 ? 1 : 0
+
+function f() {
+    var summ = 0;
+    for (var i = 0; i < arguments.length; i++) {
+        summ += arguments[i];
+    }
+    return summ;
 }
 
-console.log(f(undefined));
+console.log(f(1, 2, 3, 4, 5, 5));
