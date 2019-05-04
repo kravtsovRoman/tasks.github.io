@@ -1,27 +1,12 @@
-var arr = [];
-for (var i = 0; i < 1000; i++) arr[i] = 0;
+var arr = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 
-function walkIn(arr) {
-    for (var key in arr) arr[key]++;
+
+function getWeekDay(date) {
+    console.log(date)
+    return arr[date.getDay()]
 }
 
-function walkLength(arr) {
-    for (var i = 0; i < arr.length; i++) arr[i]++;
-}
 
-function bench(f) {
-    for (var i = 0; i < 10000; i++) f(arr);
-}
 
-console.time("All Benchmarks");
 
-console.time("walkIn");
-bench(walkIn);
-console.timeEnd("walkIn");
-
-console.time("walkLength");
-bench(walkLength);
-console.timeEnd("walkLength");
-
-console.timeEnd("All Benchmarks");
-
+console.log(getWeekDay(new Date()));
