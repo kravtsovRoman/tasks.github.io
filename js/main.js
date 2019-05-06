@@ -1,12 +1,19 @@
-var arr = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+var date = new Date(2012, 2, 1);
 
 
-function getWeekDay(date) {
-    console.log(date)
-    return arr[date.getDay()]
+function formatDate(date) {
+
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+
+    var output = (day < 10 ? '0' : '') + day + ":"
+        + (month < 10 ? '0' : '') + month + ':'
+        + (date.getFullYear() + "").slice(2);
+
+    return output;
 }
 
 
 
 
-console.log(getWeekDay(new Date()));
+console.log(formatDate(date));
