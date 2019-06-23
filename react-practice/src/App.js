@@ -1,11 +1,14 @@
 import React from 'react';
+import Todo from './components/Todo'
+import './app.css'
 
-function App() {
-  return (
-    <div className="App">
-      <h1>React.js</h1>
-    </div>
-  );
+class App extends React.Component {
+
+  render() {
+    return (
+      <Todo />
+    );
+  }
 }
 
 export default App;
