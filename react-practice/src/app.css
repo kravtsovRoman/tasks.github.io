@@ -1,9 +1,7 @@
 body ul {
     list-style-type: none;
-    /* text-align: left */
 }
 #root {
-    /* width: 300px; */
     margin:  100px auto;
     text-align: center;
 }
