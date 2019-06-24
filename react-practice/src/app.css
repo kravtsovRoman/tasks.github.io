@@ -5,3 +5,14 @@ body ul {
     margin:  100px auto;
     text-align: center;
 }
+
+.add-todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin:  0 auto;
+}
+.add-todo input {
+    margin-bottom: 10px;
+}
