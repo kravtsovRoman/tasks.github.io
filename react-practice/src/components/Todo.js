@@ -5,16 +5,17 @@ class Todo extends React.Component {
     constructor(props) {
         super(props);
         this.handleAddTodo = this.handleAddTodo.bind(this);
-        this.handleDeletetodo = this.handleDeletetodo.bind(this);
+        this.handleDeleteTodo = this.handleDeleteTodo.bind(this);
+        this.handleEditTodo = this.handleEditTodo.bind(this);
 
         this.state = {
             todos: [
-                { id: 1, text: 'buy milk' },
-                { id: 2, text: 'another todos' },
-                { id: 3, text: 'todos 3' },
-                { id: 4, text: 'another todos 4' },
+                { id: 1, text: 'buy milk', visible: true },
+                { id: 2, text: 'another todos', visible: true },
+                { id: 3, text: 'todos 3', visible: true },
+                { id: 4, text: 'another todos 4', visible: true },
             ],
-            count: 5
+            count: 5,
         }
     }
 
@@ -32,18 +33,32 @@ class Todo extends React.Component {
         e.target.todo.value = '';
     }
 
-    handleDeletetodo(i) {
-        console.log(i)
+    handleDeleteTodo(i) {
+        console.log('delete', i)
         this.setState({
             todos: this.state.todos.filter(el => el.id !== i)
         })
+    }
+
+    handleEditTodo(i) {
+        var editsTodo = this.state.todos.filter(el => el.id === i)[0];
+        editsTodo.visible = false;
+
+        this.setState({
+            // todos: newState
+        })
+
     }
 
     render() {
         return (
             <div>
                 <h1>Todo List</h1>
-                <TodoList deleteTodo={this.handleDeletetodo} addTodo={this.handleAddTodo} todos={this.state.todos} />
+                <TodoList
+                    editTodo={this.handleEditTodo}
+                    deleteTodo={this.handleDeleteTodo}
+                    addTodo={this.handleAddTodo}
+                    todos={this.state.todos} />
             </div>
         )
     }
