@@ -2,10 +2,9 @@ import React from 'react';
 
 function EditsTodo(props) {
     return (
-        <li>
-            <form className="add-todo" onSubmit={props.addTodo}>
-                <input />
-            </form>
+        <li className="edit-todo">
+            <input defaultValue={props.item.text} />
+            <button onClick={() => { props.saveTodo(props.item.id) }} type="button" className={'btn btn-primary'}>Save</button>
         </li >
     );
 }

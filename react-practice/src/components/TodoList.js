@@ -12,7 +12,7 @@ class TodoList extends React.Component {
 					{this.props.todos.map((item, i) => {
 						return (
 
-							item.visible ?
+							item.edit ?
 								<NotEditsTodo
 									item={item}
 									count={i}
@@ -21,8 +21,10 @@ class TodoList extends React.Component {
 									deleteTodo={this.props.deleteTodo}
 								/> :
 								<EditsTodo
+									item={item}
 									key={i}
 									count={i}
+									saveTodo={this.props.saveTodo}
 								/>
 						)
 					})}

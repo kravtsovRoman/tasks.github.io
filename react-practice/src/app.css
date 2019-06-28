@@ -17,7 +17,7 @@ body ul {
     margin-bottom: 10px;
 }
 .todo-list {
-    width: 500px;
+    width: 400px;
     margin: 0 auto;
 }
 .todo-list ul {
@@ -28,6 +28,7 @@ body ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 .todo-list li h3 {
     text-transform: capitalize;
@@ -39,4 +40,8 @@ body ul {
 }
 .hidden {
     display: none!important;
+}
+.edit-todo {
+    display: flex;
+    justify-content: space-between;
 }
