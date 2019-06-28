@@ -40,7 +40,7 @@ class Todo extends React.Component {
     }
 
     handleEditTodo(i) {
-        let editsTodo = this.state.todos.filter(el => el.id === i)[0];
+        const editsTodo = this.state.todos.filter(el => el.id === i)[0];
         editsTodo.edit = false;
 
         this.setState({
@@ -48,16 +48,17 @@ class Todo extends React.Component {
         })
     }
 
-    handleSave(i) {
-        console.log('123')
-        let saveTodo = this.state.todos.filter(el => el.id === i);
-        console.log(saveTodo)
+    handleSave(i, e) {
+        e.preventDefault();
 
-        // this.setState({
-        //     todos: [...this.state.todos, { id: i, text: this.item.text, edit: true }]
-        // })
-        // console.log(state.todos)
+        const saveTodo = this.state.todos.filter(el => el.id === i)[0];
+        const newValue = e.target.children[0].value;
+        saveTodo.edit = true;
+        saveTodo.text = newValue;
 
+        this.setState({
+            todos: [...this.state.todos]
+        })
     }
 
     render() {

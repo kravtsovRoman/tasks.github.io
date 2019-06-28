@@ -42,6 +42,7 @@ body ul {
     display: none!important;
 }
 .edit-todo {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
