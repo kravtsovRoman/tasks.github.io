@@ -1,15 +1,21 @@
-const http = require('http');
+const express = require('express');
+const path = require('path');
+const app = express();
 
-const server = http.createServer((req, res) => {
 
-  res.write('fghjkl');
+app.get('/', (req, res) => {
+  res.status(200);
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
 
-  res.end(() => {
-    console.log('asfsaf');
-  });
+})
 
-});
 
-server.listen(3000, () => {
-  console.log('Server is running...');
-});
+
+
+
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port: ${PORT}`);
+}); 
