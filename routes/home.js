@@ -2,10 +2,10 @@ const { Router } = require('express');
 const router = Router();
 
 
-router.get('/add', (req, res) => {
-  res.render('add', {
-    title: "Добавить курс",
-    isAddPage: true
+router.get('/', (req, res) => {
+  res.render('index', {
+    title: "Главная старница",
+    isHomePage: true
   })
 });
 
