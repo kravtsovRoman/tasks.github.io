@@ -5,6 +5,7 @@ const expressHandlebars = require('express-handlebars');
 const app = express();
 const homeRouter = require('./routes/home');
 const addRouter = require('./routes/add');
+const cardRouter = require('./routes/card');
 const coursesRouter = require('./routes/courses');
 
 
@@ -26,6 +27,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', homeRouter);
 app.use('/add', addRouter);
 app.use('/courses', coursesRouter);
+app.use('/card', cardRouter);
 
 
 // Run server
