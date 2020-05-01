@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/add', async (req, res) => {
 
-  const courses = await Course.getById(req.body.id);
+  const course = await Course.getById(req.body.id);
   await Card.add(course);
   res.redirect('/card');
 
@@ -20,8 +20,9 @@ router.get('/', async (req, res) => {
   res.render('card', {
     title: 'Корзина',
     isCard: true,
-    card
-  })
+    courses: card.courses,
+    price: card.price
+  });
 
 });
 
