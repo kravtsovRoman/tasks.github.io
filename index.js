@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const mongoose = require('mongoose');
 const expressHandlebars = require('express-handlebars');
 
 const app = express();
@@ -33,6 +34,21 @@ app.use('/card', cardRouter);
 // Run server
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port: ${PORT}`);
-}); 
+async function start() {
+  try {
+    const urlMongo = 'mongodb+srv://rozario:fVTzTII33H2vdRIB@cluster0-gueym.mongodb.net/test?retryWrites=true&w=majority';
+    await mongoose.connect(urlMongo, { useNewUrlParser: true });
+
+    app.listen(PORT, () => {
+      console.log(`Server running on port: ${PORT}`);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+
+}
+
+start();
+
+
+
