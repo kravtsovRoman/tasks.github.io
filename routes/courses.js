@@ -2,12 +2,11 @@ const { Router } = require('express');
 const Course = require('../models/course');
 const router = Router();
 
-
+// Все курсы
 router.get('/', async (req, res) => {
 
-  const courses = await Course.getAll();
+  const courses = await Course.find();
 
-  // Все курсы
   res.render('courses', {
     title: "Курсы",
     isCoursesPage: true,
@@ -22,7 +21,7 @@ router.get('/:id/edit', async (req, res) => {
     return res.redirect('/')
   }
 
-  const course = await Course.getById(req.params.id);
+  const course = await Course.findById(req.params.id);
 
   res.render('course-edit', {
     title: `Редактировать ${course.title}`,
@@ -32,15 +31,27 @@ router.get('/:id/edit', async (req, res) => {
 
 // Сохранение редактирования курса
 router.post('/edit', async (req, res) => {
-  await Course.update(req.body);
+  const { id } = req.body;
+  delete req.body.id;
+
+  await Course.findByIdAndUpdate(id, req.body);
   res.redirect('/courses');
-})
+});
+
+router.post('/remove', async (req, res) => {
+  try {
+    await Course.deleteOne({ _id: req.body.id });;
+    res.redirect('/courses');
+  } catch (e) {
+    console.log(e);
+  }
+});
 
 
 // Страница курса
 router.get('/:id', async (req, res) => {
 
-  const course = await Course.getById(req.params.id);
+  const course = await Course.findById(req.params.id);
 
   res.render('course', {
     layout: 'empty',
@@ -49,4 +60,4 @@ router.get('/:id', async (req, res) => {
   });
 })
 
-module.exports = router;
+module.exports = router; 

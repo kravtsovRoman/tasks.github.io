@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/kravtsovRoman/tasks.github.io#readme",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.3",
+    "express-handlebars": "^3.0.2",
     "mongoose": "^5.9.11",
     "uuid": "^7.0.3"
   },
