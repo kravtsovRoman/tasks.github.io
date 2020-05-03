@@ -19,7 +19,8 @@ const userSchema = new Schema({
         },
         courseId: {
           type: Schema.Types.ObjectId,
-          required: true
+          required: true,
+          ref: 'Course'
         }
       }
     ]
@@ -27,22 +28,21 @@ const userSchema = new Schema({
 });
 
 userSchema.methods.addToCart = function (course) {
-  const clonedItems = [...this.cart.items];
-  const idx = clonedItems.findIndex(c => {
+  const items = [...this.cart.items];
+  const idx = items.findIndex(c => {
     return c.courseId.toString() === course._id.toString();
   });
 
   if (idx >= 0) {
-    clonedItems[idx].count = clonedItems[idx].count + 1;
+    items[idx].count = items[idx].count + 1;
   } else {
-    console.log(course)
-    clonedItems.push({
+    items.push({
       courseId: course._id,
       count: 1
     })
   }
 
-  this.cart = { items: clonedItems };
+  this.cart = { items };
   return this.save();
 }
 
