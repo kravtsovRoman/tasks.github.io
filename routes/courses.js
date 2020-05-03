@@ -5,7 +5,9 @@ const router = Router();
 // Все курсы
 router.get('/', async (req, res) => {
 
-  const courses = await Course.find();
+  const courses = await Course.find()
+    .populate('userId', 'email name')
+    .select('price title img');
 
   res.render('courses', {
     title: "Курсы",
@@ -60,4 +62,4 @@ router.get('/:id', async (req, res) => {
   });
 })
 
-module.exports = router; 
+module.exports = router;  
