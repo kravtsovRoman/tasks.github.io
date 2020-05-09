@@ -9,6 +9,7 @@ const app = express();
 const homeRouter = require('./routes/home');
 const addRouter = require('./routes/add');
 const cardRouter = require('./routes/card');
+const ordersRouter = require('./routes/orders');
 const coursesRouter = require('./routes/courses');
 const User = require('./models/user');
 
@@ -43,6 +44,7 @@ app.use('/', homeRouter);
 app.use('/add', addRouter);
 app.use('/courses', coursesRouter);
 app.use('/card', cardRouter);
+app.use('/orders', ordersRouter);
 
 
 // Run server
